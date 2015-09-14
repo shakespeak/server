@@ -15,7 +15,7 @@ var app = express();
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/lookup/:word', function(req, res) {
     var returnWords = [];
-    if (!shakespeak.finished) {
+    if (!shakespeak.finished()) {
         res.status(404);// wrong code, but hey sue me
         res.send('not processed text yet');
         return;
