@@ -1,0 +1,18 @@
+{
+  "name": "shakespear",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "WNdb": "^3.1.1",
+    "es6-promise": "^3.0.2",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "natural": "^0.2.1"
+  }
+}
