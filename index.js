@@ -1,7 +1,7 @@
-var natural = require('natural');  
-//var stemmer = natural.PorterStemmer;  
+var natural = require('natural');
+//var stemmer = natural.PorterStemmer;
 var wordnet = new natural.WordNet();
-//stemmer.attach(); 
+//stemmer.attach();
 var shakespeak = require('./lib/shakespear');
 var _ = require('lodash');
 
@@ -41,5 +41,5 @@ app.get('/lookup/:word', function(req, res) {
     });
 
 });
-app.listen(9998);
+app.listen(process.env.PORT || 9998);
 
