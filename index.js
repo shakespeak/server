@@ -41,5 +41,41 @@ app.get('/lookup/:word', function(req, res) {
     });
 
 });
+app.get('/exist/:word', function (req, res) {
+    if (!shakespeak.finished()) {
+        res.status(404);// wrong code, but hey sue me
+        res.send('not processed text yet');
+        return;
+    }
+    res.send({
+        exists: shakespeak.exists(req.params.word)
+    })
+})
+app.get('/sentences/:word', function (req, res) {
+    if (!shakespeak.finished()) {
+        res.status(404);// wrong code, but hey sue me
+        res.send('not processed text yet');
+        return;
+    }
+    // shakespeak.sentences()
+    if (shakespeak.exists(req.params.word)) {
+        res.send(shakespeak.sentence(req.params.word));
+        return;
+    }
+    res.send([]);
+})
+app.get('/next/:word', function (req, res) {
+    if (!shakespeak.finished()) {
+        res.status(404);// wrong code, but hey sue me
+        res.send('not processed text yet');
+        return;
+    }
+    const word = shakespeak.get(req.params.word);
+    if (typeof word !== 'undefined') {
+        res.send(word);
+        return;
+    }
+    res.send([]);
+})
 app.listen(process.env.PORT || 9998);
 
