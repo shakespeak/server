@@ -72,7 +72,7 @@ app.get('/next/:word', function (req, res) {
     }
     const word = shakespeak.get(req.params.word);
     if (typeof word !== 'undefined') {
-        res.send(word);
+        res.send(word.next);
         return;
     }
     res.send([]);
